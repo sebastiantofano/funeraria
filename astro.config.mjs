@@ -5,9 +5,6 @@ export default defineConfig({
   integrations: [tailwind()],
   output: 'static',
   build: {
-    format: 'file',
-    assets: 'assets'
-  },
-  base: '/funeraria',
-  publicDir: 'public'
+    format: 'directory'
+  }
 });
