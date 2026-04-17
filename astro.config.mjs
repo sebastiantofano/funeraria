@@ -6,5 +6,6 @@ export default defineConfig({
   output: 'static',
   build: {
     format: 'file'
-  }
+  },
+  base: '/funeraria'
 });
