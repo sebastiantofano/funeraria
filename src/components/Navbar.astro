@@ -1,15 +1,15 @@
 ---
+const navLinks = [
+  { href: '/', label: 'Inicio' },
+  { href: '/#servicios', label: 'Servicios' },
+  { href: '/#nosotros', label: 'Nosotros' },
+  { href: '/#contacto', label: 'Contacto' },
+];
+
 const navLinksInternal = [
   { href: '#servicios', label: 'Servicios' },
   { href: '#nosotros', label: 'Nosotros' },
   { href: '#contacto', label: 'Contacto' },
-];
-
-const navLinksExternal = [
-  { href: '/', label: 'Inicio' },
-  { href: '/servicios', label: 'Servicios' },
-  { href: '/nosotros', label: 'Nosotros' },
-  { href: '/contacto', label: 'Contacto' },
 ];
 
 const isLandingPage = Astro.url.pathname === '/' || Astro.url.pathname === '';
@@ -24,13 +24,13 @@ const isLandingPage = Astro.url.pathname === '/' || Astro.url.pathname === '';
 
       <div class="hidden md:flex space-x-8">
         {isLandingPage ? (
-          navLinksInternal.map(link => (
+navLinks.map(link => (
             <a href={link.href} class="text-sm uppercase tracking-wider hover:text-accent transition-colors">
               {link.label}
             </a>
           ))
         ) : (
-          navLinksExternal.map(link => (
+          navLinks.map(link => (
             <a href={link.href} class="nav-link text-sm uppercase tracking-wider hover:text-accent transition-colors">
               {link.label}
             </a>
@@ -59,13 +59,13 @@ const isLandingPage = Astro.url.pathname === '/' || Astro.url.pathname === '';
 
     <div id="mobile-menu" class="hidden md:hidden pb-4">
       {isLandingPage ? (
-        navLinksInternal.map(link => (
+        navLinks.map(link => (
           <a href={link.href} class="block py-2 hover:text-accent transition-colors">
             {link.label}
           </a>
         ))
       ) : (
-        navLinksExternal.map(link => (
+        navLinks.map(link => (
           <a href={link.href} class="block py-2 nav-link hover:text-accent transition-colors">
             {link.label}
           </a>
