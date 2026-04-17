@@ -1,0 +1,207 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import ImageCarousel from '../components/ImageCarousel.astro';
+
+const servicios = [
+  {
+    title: 'Inhumación',
+    description: 'Servicio completo de sepultura que incluye preparación del difunto, ataúd de calidad, preparación del terreno floral y asistencia durante la ceremonia.',
+    items: ['Preparación del difunto', 'Ataúd premium', 'Traslado al cementerio', 'Ceremonia religiosa', 'Asistencia legal'],
+  },
+  {
+    title: 'Cremación',
+    description: 'Proceso digno de cremación con todas las opciones para respetar los deseos del difunto y la familia.',
+    items: ['Cremación completa', 'Urna de selección', 'Certificado de cremación', 'Opción de conservación de cenizas', 'Destino final de cenizas'],
+  },
+  {
+    title: 'Translados',
+    description: 'Servicio de traslado de restos mortales dentro del país o internacionalmente con toda la documentación requerida.',
+    items: ['Traslado nacional', 'Traslado internacional', 'Gestión diplomática', 'Documentación completa', 'Atención personalizada'],
+  },
+  {
+    title: 'Arreglos Florales',
+    description: 'Coronas, ramos y arreglos florales personalizados para honrar la memoria del ser querido.',
+    items: ['Coronas funerarias', 'Ramos naturales', 'Centros florales', 'Personalización completa', 'Entrega a tiempo'],
+  },
+  {
+    title: 'Ataúdes',
+    description: 'Amplia variedad de ataúdes en diferentes estilos y materiales para cada presupuesto.',
+    items: ['Ataúdes de madera', 'Ataúdes ecológicos', 'Ataúdes premium', 'Opciones personalizadas', 'Venta directa'],
+  },
+  {
+    title: 'Velatorio',
+    description: 'Espacios dignos para el velatorio con capacidad para不同的 familias y necesidades.',
+    items: ['Salones de velatorio', 'Capacidad variable', 'Aire acondiciondo', 'Estacionamiento', 'Servicio de coffee'],
+  },
+];
+---
+
+<Layout title="Servicios">
+  <Navbar />
+
+  <section class="bg-gradient-to-br from-primary to-secondary py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Nuestros Servicios</h1>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto">Brindamos una gama completa de servicios funerarios profesionales para acompañarte en todo momento.</p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-primary mb-6">Gestión, Asesoría y Atención Inmediata</h2>
+          <h3 class="text-xl font-semibold text-accent mb-4">Nos ocupamos de todo, las 24 horas.</h3>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            Brindamos una gestión integral que incluye trámites legales y asesoría profesional. Nuestra guardia permanente garantiza una respuesta inmediata en el momento del llamado. El retiro de la documentación correspondiente se realiza de nuestras oficinas.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <img src="/servicio_gestion_1.jpeg" alt="Gestión y asesoría" class="w-full h-72 object-cover rounded-xl hover:opacity-90 transition-opacity cursor-pointer lightbox-img" />
+          <img src="/servicio_gestion_2.jpeg" alt="Gestión y asesoría" class="w-full h-72 object-cover rounded-xl hover:opacity-90 transition-opacity cursor-pointer lightbox-img" />
+        </div>
+
+<div id="lightbox" class="fixed inset-0 bg-black/95 z-50 hidden items-center justify-center p-4">
+  <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl">&times;</button>
+  <img id="lightbox-img" src="" alt="Imagen" class="max-h-[90vh] max-w-[90vw] object-contain" />
+</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <ImageCarousel images={["/servicio_espacio.jpeg"]} alt="Espacios y flexibilidad" height="h-72" />
+        <div>
+          <h2 class="text-3xl font-bold text-primary mb-6">Espacios y Flexibilidad de Homenaje</h2>
+          <h3 class="text-xl font-semibold text-accent mb-4">Un espacio de encuentro, donde la familia elija.</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Entendemos que cada despedida es única: el lugar de la sala y el homenaje es a coordinar según el deseo de la familia, adaptándonos plenamente a su voluntad y comodidad.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-primary mb-6">Servicios de Destino Final y Calidad</h2>
+          <h3 class="text-xl font-semibold text-accent mb-4">Inhumaciones, Cremaciones y Opciones a Medida.</h3>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            Ofrecemos soluciones para todas las necesidades: desde inhumaciones en bóvedas o nichos hasta servicios de cremación y traslados nacionales. Contamos con una amplia variedad de ataúdes de máxima calidad para un homenaje digno.
+          </p>
+        </div>
+        <ImageCarousel images={["/servicio_destino_1.jpeg", "/servicio_destino_2.jpeg", "/servicio_destino_3.jpeg", "/servicio_destino_4.jpeg", "/servicio_destino_5.jpeg"]} alt="Destino final" height="h-72" />
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {servicios.map((servicio, index) => (
+          <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100">
+            <h3 class="text-xl font-bold text-primary mb-3">{servicio.title}</h3>
+            <p class="text-gray-600 mb-4 text-sm">{servicio.description}</p>
+            <ul class="space-y-2">
+              {servicio.items.map(item => (
+                <li class="flex items-center gap-2 text-gray-700 text-sm">
+                  <svg class="w-4 h-4 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="py-20 bg-primary text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Contacto</h2>
+        <p class="text-gray-300 text-lg">Estamos disponibles las 24 horas para atenderte.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <h3 class="text-xl font-semibold text-accent mb-6">Envianos un mensaje</h3>
+          <form class="space-y-4" action="https://formsubmit.co/adriantofano@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Nuevo mensaje desde la web" />
+            <div>
+              <label class="block text-sm mb-1">Nombre</label>
+              <input type="text" name="nombre" required class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-accent" placeholder="Tu nombre" />
+            </div>
+            <div>
+              <label class="block text-sm mb-1">Teléfono</label>
+              <input type="tel" name="telefono" required class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-accent" placeholder="Tu teléfono" />
+            </div>
+            <div>
+              <label class="block text-sm mb-1">Mensaje</label>
+              <textarea name="mensaje" rows="4" required class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-accent" placeholder="¿En qué podemos ayudarte?"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-accent text-primary px-6 py-3 rounded-lg font-bold hover:bg-accent/90 transition-colors">
+              Enviar Mensaje
+            </button>
+          </form>
+
+          <div class="mt-8 bg-white/10 p-6 rounded-xl">
+            <h3 class="text-xl font-semibold text-accent mb-4">📞 Teléfono de Guardia 24hs</h3>
+            <a href="tel:+5491139055121" class="text-3xl font-bold hover:underline block mb-2">
+              (11) 3905-5121
+            </a>
+            <p class="text-gray-300 text-sm">Su confianza es nuestro mayor compromiso.</p>
+          </div>
+        </div>
+
+        <div class="space-y-8">
+          <div class="bg-white/10 p-6 rounded-xl">
+            <h3 class="text-xl font-semibold text-accent mb-4">Sepelios Pinier</h3>
+            <p class="text-gray-300 mb-2">Av. S. Martín 2902</p>
+            <p class="text-gray-300 mb-2">C1416, Ciudad Autónoma de Buenos Aires</p>
+          </div>
+
+          <div class="bg-white/10 p-6 rounded-xl">
+            <h3 class="text-xl font-semibold text-accent mb-4">Cochería Santa Magdalena</h3>
+            <p class="text-gray-300 mb-2">Av. Salvador María del Carril 2483</p>
+            <p class="text-gray-300 mb-2">C1419GZD, Ciudad Autónoma de Buenos Aires</p>
+          </div>
+
+          <a href="https://wa.me/5491139055121?text=Hola,%20necesito%20más%20información%20sobre%20los%20servicios%20funerarios." target="_blank" class="flex items-center justify-center gap-2 bg-[#25D366] text-white px-6 py-4 rounded-lg font-bold hover:bg-[#20BD5A] transition-colors w-full">
+            💬 Contactar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+<script>
+  document.querySelectorAll('.lightbox-img').forEach(img => {
+    img.addEventListener('click', () => {
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox').classList.remove('hidden');
+      document.getElementById('lightbox').classList.add('flex');
+    });
+  });
+  document.getElementById('lightbox-close').addEventListener('click', () => {
+    document.getElementById('lightbox').classList.add('hidden');
+    document.getElementById('lightbox').classList.remove('flex');
+  });
+  document.getElementById('lightbox').addEventListener('click', (e) => {
+    if (e.target.id === 'lightbox') {
+      document.getElementById('lightbox').classList.add('hidden');
+      document.getElementById('lightbox').classList.remove('flex');
+    }
+  });
+</script>
+</Layout>

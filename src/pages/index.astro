@@ -1,0 +1,212 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import ImageCarousel from '../components/ImageCarousel.astro';
+---
+
+<Layout title="Inicio">
+  <Navbar />
+
+  <Hero
+    title="Honrando una vida, acompañando un adiós"
+    subtitle="Brindamos servicios funerarios profesionales y humanos, ocupándonos de cada detalle para que tú puedas enfocarte en lo importante: honrar a tu ser querido."
+    backgroundImage1="/sepelios_pinier.jpeg"
+    backgroundImage2="/sepelios_santaMag.jpeg"
+  />
+
+  <section id="servicios" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Servicios Funerarios</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto text-lg">60 años de trayectoria respaldan nuestro compromiso con la dignidad y el respeto.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+        <ImageCarousel 
+          images={["/servicio_espacio.jpeg"]} 
+          alt="Espacios y Flexibilidad" 
+          height="h-[350px]" 
+        />
+        <div>
+          <h3 class="text-2xl font-bold text-primary mb-4">Espacios y Flexibilidad de Homenaje</h3>
+          <p class="text-gray-600 mb-4 text-lg">Un espacio de encuentro, donde la familia elija.</p>
+          <p class="text-gray-600 text-lg">Entendemos que cada despedida es única: el lugar de la sala y el homenaje es a coordinar según el deseo de la familia, adaptándonos plenamente a su voluntad y comodidad.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+        <div class="grid grid-cols-2 gap-2">
+          <img src="/servicio_gestion_1.jpeg" alt="Gestión y Asesoría" class="w-full h-[350px] object-cover rounded-xl hover:opacity-90 transition-opacity cursor-pointer lightbox-img" />
+          <img src="/servicio_gestion_2.jpeg" alt="Gestión y Asesoría" class="w-full h-[350px] object-cover rounded-xl hover:opacity-90 transition-opacity cursor-pointer lightbox-img" />
+        </div>
+
+<div id="lightbox" class="fixed inset-0 bg-black/95 z-50 hidden items-center justify-center p-4">
+  <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl">&times;</button>
+  <img id="lightbox-img" src="" alt="Imagen" class="max-h-[90vh] max-w-[90vw] object-contain" />
+</div>
+        <div>
+          <h3 class="text-2xl font-bold text-primary mb-4">Gestión, Asesoría y Atención Inmediata</h3>
+          <p class="text-gray-600 mb-4 text-lg">Nos ocupamos de todo, las 24 horas.</p>
+          <p class="text-gray-600 text-lg">Brindamos una gestión integral que incluye trámites legales y asesoría profesional. Nuestra guardia permanente garantiza una respuesta inmediata en el momento del llamado. El retiro de la documentación correspondiente se realiza de nuestras oficinas.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+        <div>
+          <h3 class="text-2xl font-bold text-primary mb-4">Servicios de Destino Final y Calidad</h3>
+          <p class="text-gray-600 mb-4 text-lg">Inhumaciones, Cremaciones y Opciones a Medida.</p>
+          <p class="text-gray-600 text-lg">Ofrecemos soluciones para todas las necesidades: desde inhumaciones en bóvedas o nichos hasta servicios de cremación y traslados nacionales. Contamos con una amplia variedad de ataúdes de máxima calidad para un homenaje digno.</p>
+        </div>
+        <ImageCarousel 
+          images={["/servicio_destino_1.jpeg", "/servicio_destino_2.jpeg", "/servicio_destino_3.jpeg", "/servicio_destino_4.jpeg", "/servicio_destino_5.jpeg"]} 
+          alt="Destino final" 
+          height="h-[350px]" 
+        />
+      </div>
+    </div>
+  </section>
+
+  <section id="nosotros" class="py-20 bg-light relative overflow-hidden">
+    <div class="absolute right-0 top-0 w-full md:w-1/2 h-full">
+      <img src="/nosotros.jpeg" alt="Nosotros" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-r from-light via-light/80 to-transparent md:via-light/70"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Nosotros</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto text-lg">Más de 60 años acompañando a familias en momentos difíciles.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div class="bg-gradient-to-br from-primary to-secondary p-8 rounded-xl text-white text-center">
+          <div class="text-4xl font-bold text-accent">60+</div>
+          <div class="text-gray-300">Años</div>
+        </div>
+        <div class="bg-gradient-to-br from-primary to-secondary p-8 rounded-xl text-white text-center">
+          <div class="text-4xl font-bold text-accent">24/7</div>
+          <div class="text-gray-300">Atención</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-2xl font-bold text-primary mb-6">Empresa familiar con trayectoria</h3>
+          <p class="text-gray-600 mb-4 leading-relaxed text-lg">
+            Somos una empresa familiar con más de 60 años de experiencia en el servicio funerario. Acompañamos a cada familia con respeto, compromiso y una atención cercana en cada etapa.
+          </p>
+          <p class="text-gray-600 leading-relaxed text-lg">
+            Nuestra historia es su mayor garantía de tranquilidad.
+          </p>
+        </div>
+        <div class="bg-gradient-to-br from-primary to-secondary p-8 rounded-xl text-white">
+          <ul class="space-y-6">
+            <li class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-accent/20 rounded-full flex items-center justify-center flex-shrink-0 text-accent">✓</div>
+              <div>
+                <h4 class="font-semibold mb-1">Experiencia y Profesionalismo</h4>
+                <p class="text-gray-300 text-sm">Más de 60 años acompañando a familias</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-accent/20 rounded-full flex items-center justify-center flex-shrink-0 text-accent">✓</div>
+              <div>
+                <h4 class="font-semibold mb-1">Atención 24/7</h4>
+                <p class="text-gray-300 text-sm">Siempre disponibles para atenderte</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-accent/20 rounded-full flex items-center justify-center flex-shrink-0 text-accent">✓</div>
+              <div>
+                <h4 class="font-semibold mb-1">Precios Transparentes</h4>
+                <p class="text-gray-300 text-sm">Sin costos ocultos</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="py-20 bg-primary text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Contacto</h2>
+        <p class="text-gray-300 text-lg">Estamos disponibles las 24 horas para atenderte.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <h3 class="text-xl font-semibold text-accent mb-6">Envianos un mensaje</h3>
+          <form class="space-y-4" action="https://formsubmit.co/adriantofano@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Nuevo mensaje desde la web" />
+            <div>
+              <label class="block text-sm mb-1">Nombre</label>
+              <input type="text" name="nombre" required class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-accent" placeholder="Tu nombre" />
+            </div>
+            <div>
+              <label class="block text-sm mb-1">Teléfono</label>
+              <input type="tel" name="telefono" required class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-accent" placeholder="Tu teléfono" />
+            </div>
+            <div>
+              <label class="block text-sm mb-1">Mensaje</label>
+              <textarea name="mensaje" rows="4" required class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-accent" placeholder="¿En qué podemos ayudarte?"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-accent text-primary px-6 py-3 rounded-lg font-bold hover:bg-accent/90 transition-colors">
+              Enviar Mensaje
+            </button>
+          </form>
+
+          <div class="mt-8 bg-white/10 p-6 rounded-xl">
+            <h3 class="text-xl font-semibold text-accent mb-4">📞 Teléfono de Guardia 24hs</h3>
+            <a href="tel:+5491139055121" class="text-3xl font-bold hover:underline block mb-2">
+              (11) 3905-5121
+            </a>
+            <p class="text-gray-300 text-sm">Su confianza es nuestro mayor compromiso.</p>
+          </div>
+        </div>
+
+        <div class="space-y-8">
+          <div class="bg-white/10 p-6 rounded-xl">
+            <h3 class="text-xl font-semibold text-accent mb-4">Sepelios Pinier</h3>
+            <p class="text-gray-300 mb-2">Av. S. Martín 2902</p>
+            <p class="text-gray-300 mb-2">C1416, Ciudad Autónoma de Buenos Aires</p>
+          </div>
+
+          <div class="bg-white/10 p-6 rounded-xl">
+            <h3 class="text-xl font-semibold text-accent mb-4">Cochería Santa Magdalena</h3>
+            <p class="text-gray-300 mb-2">Av. Salvador María del Carril 2483</p>
+            <p class="text-gray-300 mb-2">C1419GZD, Ciudad Autónoma de Buenos Aires</p>
+          </div>
+
+          <a href="https://wa.me/5491139055121?text=Hola,%20necesito%20más%20información%20sobre%20los%20servicios%20funerarios." target="_blank" class="flex items-center justify-center gap-2 bg-[#25D366] text-white px-6 py-4 rounded-lg font-bold hover:bg-[#20BD5A] transition-colors w-full">
+            💬 Contactar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+<script>
+  document.querySelectorAll('.lightbox-img').forEach(img => {
+    img.addEventListener('click', () => {
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox').classList.remove('hidden');
+      document.getElementById('lightbox').classList.add('flex');
+    });
+  });
+  document.getElementById('lightbox-close').addEventListener('click', () => {
+    document.getElementById('lightbox').classList.add('hidden');
+    document.getElementById('lightbox').classList.remove('flex');
+  });
+  document.getElementById('lightbox').addEventListener('click', (e) => {
+    if (e.target.id === 'lightbox') {
+      document.getElementById('lightbox').classList.add('hidden');
+      document.getElementById('lightbox').classList.remove('flex');
+    }
+  });
+</script>
+</Layout>

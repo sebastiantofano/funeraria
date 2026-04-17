@@ -1,0 +1,125 @@
+---
+interface Props {
+  images: string[];
+  alt: string;
+  height?: string;
+}
+
+const { images, alt, height = "h-72" } = Astro.props;
+const id = `carousel-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<div class="relative" id={id}>
+  <div class={`relative overflow-hidden rounded-xl ${height}`}>
+    {images.map((src, index) => (
+      <img 
+        src={src} 
+        alt={`${alt} ${index + 1}`} 
+        class={`carousel-slide w-full h-full object-cover absolute top-0 left-0 transition-opacity duration-500`}
+        data-carousel={id}
+        data-index={index}
+        style={index === 0 ? "opacity: 1" : "opacity: 0; z-index: 1"}
+      />
+    ))}
+  </div>
+  {images.length > 1 && (
+    <button class="carousel-prev absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors hidden" data-carousel={id}>
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+  )}
+  {images.length > 1 && (
+    <button class="carousel-next absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors hidden" data-carousel={id}>
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  )}
+  {images.length > 1 && (
+    <div class="carousel-dots absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2" data-carousel={id}>
+      {images.map((_, index) => (
+        <button 
+          class="carousel-dot w-2 h-2 rounded-full bg-white/70 hover:bg-white transition-colors" 
+          data-carousel={id}
+          data-index={index}
+        />
+      ))}
+    </div>
+  )}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousels = document.querySelectorAll('[data-carousel]');
+    
+    carousels.forEach((slide) => {
+      const id = slide.getAttribute('data-carousel');
+      const slides = document.querySelectorAll(`img[data-carousel="${id}"]`);
+      const prevBtn = document.querySelectorAll(`button.carousel-prev[data-carousel="${id}"]`);
+      const nextBtn = document.querySelectorAll(`button.carousel-next[data-carousel="${id}"]`);
+      const dots = document.querySelectorAll(`button.carousel-dot[data-carousel="${id}"]`);
+      
+      let currentIndex = 0;
+      const totalSlides = slides.length;
+      
+      const showSlide = (index: number) => {
+        slides.forEach((slide, i) => {
+          (slide as HTMLElement).style.opacity = i === index ? '1' : '0';
+        });
+        dots.forEach((dot, i) => {
+          if (i === index) {
+            dot.classList.add('bg-white');
+            dot.classList.remove('bg-white/70');
+          } else {
+            dot.classList.remove('bg-white');
+            dot.classList.add('bg-white/70');
+          }
+        });
+      };
+      
+      const nextSlide = () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        showSlide(currentIndex);
+      };
+      
+      prevBtn.forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+          showSlide(currentIndex);
+        });
+      });
+      
+      nextBtn.forEach(btn => {
+        btn.addEventListener('click', () => {
+          nextSlide();
+        });
+      });
+      
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          currentIndex = parseInt(dot.getAttribute('data-index') || '0');
+          showSlide(currentIndex);
+        });
+      });
+      
+      showSlide(0);
+      
+      if (totalSlides > 1) {
+        setInterval(nextSlide, 2000);
+      }
+      
+      const container = document.getElementById(id);
+      if (container) {
+        container.addEventListener('mouseenter', () => {
+          prevBtn.forEach(btn => btn.classList.remove('hidden'));
+          nextBtn.forEach(btn => btn.classList.remove('hidden'));
+        });
+        container.addEventListener('mouseleave', () => {
+          prevBtn.forEach(btn => btn.classList.add('hidden'));
+          nextBtn.forEach(btn => btn.classList.add('hidden'));
+        });
+      }
+    });
+  });
+</script>

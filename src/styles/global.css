@@ -1,0 +1,12 @@
+.nav-link:hover {
+  color: #c9a227;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
