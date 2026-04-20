@@ -71,15 +71,10 @@ import ImageCarousel from '../components/ImageCarousel.astro';
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-        <div class="grid grid-cols-2 gap-2">
-          <img src="/servicio_gestion_1.jpeg" alt="Gestión y Asesoría" class="w-full h-[450px] object-cover rounded-xl hover:opacity-90 transition-opacity cursor-pointer lightbox-img" />
-          <img src="/servicio_gestion_2.jpeg" alt="Gestión y Asesoría" class="w-full h-[450px] object-cover rounded-xl hover:opacity-90 transition-opacity cursor-pointer lightbox-img" />
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+          <img src="/servicio_gestion_1.jpeg" alt="Gestión y Asesoría" class="w-full h-[200px] md:h-[250px] lg:h-[350px] object-cover rounded-xl hover:opacity-90 transition-opacity cursor-pointer lightbox-img" />
+          <img src="/servicio_gestion_2.jpeg" alt="Gestión y Asesoría" class="w-full h-[200px] md:h-[250px] lg:h-[350px] object-cover rounded-xl hover:opacity-90 transition-opacity cursor-pointer lightbox-img" />
         </div>
-
-<div id="lightbox" class="fixed inset-0 bg-black/95 z-50 hidden items-center justify-center p-4">
-  <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl">&times;</button>
-  <img id="lightbox-img" src="" alt="Imagen" class="max-h-[90vh] max-w-[90vw] object-contain" />
-</div>
         <div>
           <h3 class="text-2xl font-bold text-primary mb-4">Gestión, Asesoría y Atención Inmediata</h3>
           <p class="text-gray-600 mb-4 text-lg">Nos ocupamos de todo, las 24 horas.</p>
@@ -88,16 +83,16 @@ import ImageCarousel from '../components/ImageCarousel.astro';
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+        <ImageCarousel 
+          images={["/servicio_destino_1.jpeg", "/servicio_destino_2.jpeg", "/servicio_destino_3.jpeg", "/servicio_destino_4.jpeg", "/servicio_destino_5.jpeg"]} 
+          alt="Destino final" 
+          height="h-[450px]" 
+        />
         <div>
           <h3 class="text-2xl font-bold text-primary mb-4">Servicios de Destino Final y Calidad</h3>
           <p class="text-gray-600 mb-4 text-lg">Inhumaciones, Cremaciones y Opciones a Medida.</p>
           <p class="text-gray-600 text-lg">Ofrecemos soluciones para todas las necesidades: desde inhumaciones en bóvedas o nichos hasta servicios de cremación y traslados nacionales. Contamos con una amplia variedad de ataúdes de máxima calidad para un homenaje digno.</p>
         </div>
-<ImageCarousel 
-          images={["/servicio_destino_1.jpeg", "/servicio_destino_2.jpeg", "/servicio_destino_3.jpeg", "/servicio_destino_4.jpeg", "/servicio_destino_5.jpeg"]} 
-          alt="Destino final" 
-          height="h-[450px]" 
-        />
       </div>
     </div>
   </section>
@@ -112,7 +107,7 @@ import ImageCarousel from '../components/ImageCarousel.astro';
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:items-start">
         <div class="bg-white/10 p-4 rounded-xl">
           <h3 class="text-lg font-semibold text-accent mb-2">📞 Teléfono de Guardia 24hs</h3>
-          <a href="tel:+54911390555121" class="text-2xl font-bold hover:underline block">
+          <a href="tel:+5491139055121" class="text-2xl font-bold hover:underline block">
             (011) 3905-5121
           </a>
           <a href="https://wa.me/+5491139055121?text=Hola,%20necesito%20más%20información%20sobre%20los%20servicios%20funerarios." target="_blank" class="flex items-center justify-center gap-2 bg-[#25D366] text-white px-3 py-2 rounded-lg font-bold text-sm mt-2 hover:bg-[#20BD5A] transition-colors">
@@ -169,7 +164,12 @@ import ImageCarousel from '../components/ImageCarousel.astro';
     <p class="text-white text-xl md:text-2xl font-semibold">Su confianza es nuestro mayor compromiso</p>
   </div>
 
-  <Footer />
+  <div id="lightbox" class="fixed inset-0 bg-black/95 z-50 hidden items-center justify-center p-4">
+  <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl">&times;</button>
+  <img id="lightbox-img" src="" alt="Imagen" class="max-h-[90vh] max-w-[90vw] object-contain" />
+</div>
+
+<Footer />
 
 <script>
   document.querySelectorAll('.lightbox-img').forEach(img => {
